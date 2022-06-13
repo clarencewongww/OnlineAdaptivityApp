@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction of Student's Adaptivity Level for Online Learning</title>
+    <!-- <link rel="stylesheet" href="../static/main.css"> -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  
+    <style>
+
+    </style> 
+
+    </head>
+
+<body>
+    <div class="questions">
+	<h1>Prediction of Student's Adaptivity Level of Online Learning</h1>
+	<p>Online Education has become a buzzword since the COVID-19 pandamic hit the world unexpectedly. Many educational institutions went online to 
+        continue educational activities for students of all profiles.<p>
+    <p>Students of several levels also faced many difficulties when they got introduced to online education. It is hence important for the decision-makers
+         of educational institutions to be informed about the effectiveness of online education so that they can take further steps to make it more beneficial for the students. </p>
+    <p>This online tool serves as a simple way to predict how well a student can adapt to online learning based on a set of parameters. Educators can then
+         pay additional attention to these students to ensure they are not left behind.</p>
+    <p id="predict_message">{{ adaptivity_level }}</p>
+    
+    <form action="/predict" method="post">
+        <fieldset>
+        <legend>Gender</legend>
+        <input type="radio" id="male" name="gender" value=1 required> <label class="options" for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value=0> <label class="options" for="female">Female</label>
+        </fieldset>
+    <br> 
+        <fieldset>
+        <legend>Instituition Type</legend>
+        <p class="comments">Government institutions offer subsidised programs while Non-government instituitions are not subsidised</p>
+        <input type="radio" id="government" name="instiution_type" value=1 required>
+        <label class="options" for="government">Government</label><br>
+        <input type="radio" id="non-government" name="instiution_type" value=0>
+        <label class="options" for="non-government">Non-government</label>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>IT Student Status</legend>
+        <input type="radio" id="yes" name="it_student" value=1 required>
+        <label class="options" for="yes">Yes</label><br>
+        <input type="radio" id="no" name="it_student" value=0>
+        <label class="options" for="no">No</label>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Student Location in Town</legend>
+        <input type="radio" id="yes_town" name="location" value=1 required>
+        <label class="options" for="yes_town">Yes</label><br>
+        <input type="radio" id="no_town" name="location" value=0>
+        <label class="options" for="no_town">No</label>
+        </fieldset>
+    <br> 
+        
+        <fieldset>
+        <legend>Load shedding in Student's Country</legend>
+        <p class="comments">Load shedding (loadshedding) is a way to distribute demand for electrical power across multiple power sources. Load shedding is used to relieve stress on a primary energy source when demand for electricity is greater than the primary power source can supply. </p>
+        <p class="comments">During load shedding events, the building draws power from its secondary source(s) rather than from the utility. A typical secondary source is on-site diesel generators, or on-site or contracted solar photovoltaics or wind-based renewable power.</p>
+        <p class="comments">If unsure, select "Low".</p>
+        <input type="radio" id="high" name="load_shedding" value=1 required>
+        <label class="options" for="high">High</label><br>
+        <input type="radio" id="low" name="load_shedding" value=0>
+        <label class="options" for="low">Low</label>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Internet Type used by student</legend>
+        <input type="radio" id="wifi" name="internet_type" value=1 required>
+        <label class="options" for="wifi">Wifi</label><br>
+        <input type="radio" id="mobile" name="internet_type" value=0>
+        <label class="options" for="mobile">Mobile Data</label>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Does instituition use a Learning Management System (LMS)?</legend>
+        <input type="radio" id="yes_lms" name="lms" value=1 required>
+        <label class="options" for="yes_lms">Yes</label><br>
+        <input type="radio" id="no_lms" name="lms" value=0>
+        <label class="options" for="no_lms">No</label>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Education Level of student</legend>
+        <p class="comments">School refers to students at the pre-tertiary education level, college refers to students at the bachelor level & university refers to post-bacherlor level</p>
+
+        <label class="options" for="education_level">Education level:</label>
+        <select name="education_level" id="education_level">
+          <option value=0>School</option>
+          <option value=1>College</option>
+          <option value=2>University</option>
+        </select>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Financial Condition</legend>
+        <p class="comments">33.3 percentile = Low, 33.3 to 66.6 percentile = Mid, above 66.6 percentage = High</p>
+
+        <label class="options" for="financial_condition">Financial condition:</label>
+
+        <select name="financial_condition" id="financial_condition">
+          <option value=0>Low</option>
+          <option value=1>Mid</option>
+          <option value=2>High</option>
+        </select>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Class Duration</legend>
+        <label class="options" for="class_duraion">Class duration (in hours):</label>
+
+        <select name="class_duraion" id="class_duraion">
+          <option value=0>0-1</option>
+          <option value=1>1-3</option>
+          <option value=2>3-6</option>
+        </select>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Device used by student</legend>
+        <label class="options" for="device">Device used:</label>
+
+        <select name="device" id="device">
+          <option value=0>Mobile phone</option>
+          <option value=1>Tablet</option>
+          <option value=2>Computer</option>
+        </select>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Mobile Network used by student</legend>
+        <label class="options" for="network">Mobile network type:</label>
+
+        <select name="network" id="network">
+          <option value=0>2G</option>
+          <option value=1>3G</option>
+          <option value=2>4G</option>
+        </select>
+        </fieldset>
+    <br>
+        
+        <fieldset>
+        <legend>Student's Age</legend>
+        <input class="age" type="text" name="age" placeholder="Age range from 1 to 30" required>
+        </fieldset>
+        
+    <br>
+        
+        <input type="submit" value="Predict" id="predict">
+    </form>
+</div>
+</body>
+</html>
+

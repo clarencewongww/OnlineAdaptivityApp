@@ -1,0 +1,136 @@
+html, body { 
+  background: url(img/education_img.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+}
+
+.questions {
+    background-color: SlateGrey;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 600px;
+    display:block;
+    height: 90%; 
+    overflow-y: scroll;
+}
+
+h1 {
+    text-align: center;
+    font-family: Impact;
+
+}
+
+legend {
+    color: black;
+    font-weight: bold;
+    font-family: Trebuchet MS; 
+    background: #FF9;
+    border: solid 1px black;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+fieldset
+{
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color:#CCC;
+  padding:10px;
+  margin: 10px;
+  border-radius: 12px;
+}
+
+.options {
+    font-size: 14px;
+    font-family: Tahoma;
+    font-weight:bold;
+}
+
+p {
+    color: white;
+    font-family: Tahoma;
+    font-size: 14px;
+    display: block;
+    margin:  5px;
+}
+
+.comments {
+    color: #130166;
+    font-family: Tahoma;
+    font-size: 14px;
+    display: block;
+    margin-top:  0px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: black;
+    font-family: Verdana;
+    font-size: 16px;
+    margin:  15px;
+}
+
+.age {
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  font-family: Tahoma;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.age:focus {
+    outline: none;
+    border: solid 5px #00FFCE;
+}
+
+
+#predict {
+    background-color: #03CFF7;
+    border:  none;
+    width:  200px;
+    height: 50px;
+    color: brown;
+    font-size: 20px;
+    font-family: Impact;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 12px;
+}
+
+#predict:hover {
+    background-color: #0590AC;
+}
+
+#predict_message {
+    margin: 15px;
+    font-size: 16px;
+    font-family: Tahoma;
+    color: #EED205;
+    font-weight: bold;
+    text-align: center;
+    border-style:solid;
+    border-color:red;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#predict_message:empty {
+    display:None;
+}
